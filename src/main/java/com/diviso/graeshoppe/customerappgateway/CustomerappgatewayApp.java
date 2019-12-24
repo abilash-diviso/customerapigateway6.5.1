@@ -3,8 +3,7 @@ package com.diviso.graeshoppe.customerappgateway;
 import com.diviso.graeshoppe.customerappgateway.config.ApplicationProperties;
 import com.diviso.graeshoppe.customerappgateway.config.DefaultProfileUtil;
 
-import com.diviso.graeshoppe.customerappgateway.service.CustomerappgatewayKafkaConsumer;
-import com.diviso.graeshoppe.customerappgateway.service.CustomerappgatewayKafkaProducer;
+import com.diviso.graeshoppe.customerappgateway.service.NotificationService;
 import org.springframework.context.ConfigurableApplicationContext;
 import io.github.jhipster.config.JHipsterConstants;
 
@@ -68,8 +67,7 @@ public class CustomerappgatewayApp implements InitializingBean {
         SpringApplication app = new SpringApplication(CustomerappgatewayApp.class);
         DefaultProfileUtil.addDefaultProfile(app);
         ConfigurableApplicationContext applicationContext = app.run(args);
-        applicationContext.getBean(CustomerappgatewayKafkaProducer.class).init();
-        applicationContext.getBean(CustomerappgatewayKafkaConsumer.class).start();
+        applicationContext.getBean(NotificationService.class).start();
         Environment env = applicationContext.getEnvironment();
         logApplicationStartup(env);
     }

@@ -11,8 +11,6 @@ public class KafkaProperties {
 
     private Map<String, String> consumer;
 
-    private Map<String, String> producer;
-
     public Map<String, Object> getConsumerProps() {
         return (Map) consumer;
     }
@@ -21,11 +19,4 @@ public class KafkaProperties {
         this.consumer = consumer;
     }
 
-    public Map<String, Object> getProducerProps() {
-        return (Map) producer;
-    }
-
-    public void setProducer(Map<String, String> producer) {
-        this.producer = producer;
-    }
 }
